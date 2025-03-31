@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Финансовый навигатор</title>
+    <link rel="stylesheet" href="../main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <nav class="nav">
+            <div class="logo"><a href="../index.html">Money talks</a></div>
+            <div class="burger" id="burger">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="#" class="link">O нас</a></li>
+              <li class="nav-item">
+                <a href="#" class="link">Как это работает</a>
+              </li>
+              <li class="nav-item"><a href="#" class="link">FAQ</a></li>
+            </ul>
+            <div class="btn-group">
+              <a href="#" class="nav-btn btn left">Вход</a>
+              <a href="#" class="nav-btn btn right">Регистрация</a>
+            </div>
+          </nav>
+
+          <div class="menu" id="menu">
+            <li class="menu-item">O нас</li>
+            <li class="menu-item">Как это работает</li>
+            <li class="menu-item">FAQ</li>
+            <li class="menu-btn">Вход</li>
+            <li class="menu-btn">Регистрация</li>
+          </div>
+          <div class="overlay" id="overlay"></div>
+        </div>
+      </header>
+      <section class="calculate">
+        <div class="calculate_top">
+          <p class="calculate_title title-black">Визуализируйте свои финансы</p>
+          <div class="canvas">
+            <div class="canvas_btn">
+              <svg id="scrollLeft" class="arrowLeft">
+                <use
+                  xlink:href="../assets/icons/swgSprite/edit.svg#arrow"
+                ></use>
+              </svg>
+              <svg id="scrollRight" class="arrowRight">
+                <use
+                  xlink:href="../assets/icons/swgSprite/edit.svg#arrow"
+                ></use>
+              </svg>
+            </div>
+            <canvas id="myChart"></canvas>
+            <div class="canvas_summary" id="summary"></div>
+          </div>
+          <img
+            class="calculate_leftimg"
+            src="../assets/icons/calcLeft.svg"
+            alt="decorateImg"
+          />
+          <img
+            class="calculate_rightimg"
+            src="../assets/icons/calcRight.svg"
+            alt="decorateImg"
+          />
+          <div class="button-group">
+            <button onclick="saveData('income')" class="button-group_btn">
+              Доходы
+            </button>
+            <button onclick="saveData('expense')" class="button-group_btn">
+              Расходы
+            </button>
+          </div>
+        </div>
+        <div class="analysis">
+          <div class="analysis_title title-black">Внести данные</div>
+          <select class="select" id="monthSelect">
+            <option value="Январь">Январь</option>
+            <option value="Февраль">Февраль</option>
+            <option value="Март">Март</option>
+            <option value="Апрель">Апрель</option>
+            <option value="Май">Май</option>
+            <option value="Июнь">Июнь</option>
+            <option value="Июль">Июль</option>
+            <option value="Август">Август</option>
+            <option value="Сентябрь">Сентябрь</option>
+            <option value="Октябрь">Октябрь</option>
+            <option value="Ноябрь">Ноябрь</option>
+            <option value="Декабрь">Декабрь</option>
+          </select>
+          <div class="analysis_body">
+            <div class="analysis_body-left">
+              <h3 style="text-align: center">Доходы:</h3>
+              <input
+                class="input"
+                type="number"
+                id="income1"
+                placeholder="Зарплата"
+              />
+              <input
+                type="number"
+                id="income2"
+                placeholder="Дополнительный доход"
+                class="input"
+              />
+              <input
+                class="input"
+                type="number"
+                id="income3"
+                placeholder="Инвестиции"
+              />
+              <input
+                type="number"
+                id="income4"
+                placeholder="Пассивный доход"
+                class="input"
+              />
+              <input
+                type="number"
+                id="income5"
+                placeholder="Продажа ненужных вещей "
+                class="input"
+              />
+            </div>
+            <div class="analysis_body-right">
+              <h3 style="text-align: center">Расходы:</h3>
+              <input
+                type="number"
+                id="expense1"
+                placeholder="Жилищные расходы"
+                class="input"
+              />
+              <input
+                type="number"
+                id="expense2"
+                class="input"
+                placeholder="Коммунальные услуги"
+              />
+              <input
+                type="number"
+                id="expense3"
+                placeholder="Продукты питания"
+                class="input"
+              />
+              <input
+                type="number"
+                id="expense4"
+                placeholder="Транспорт"
+                class="input"
+              />
+              <input
+                type="number"
+                id="expense4"
+                placeholder="Развлечения и досуг"
+                class="input"
+              />
+              <input
+                type="number"
+                id="expense5"
+                placeholder="Здоровье и медицина"
+                class="input"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer_group">
+            <div class="logo-group">
+              <div class="logo-group_logo">MoneyTalks</div>
+              <div class="logo-group_social">
+                <img src="../assets/icons/fb.svg" alt="facebook" />
+                <img src="../assets/icons/tw.svg" alt="twitter" />
+                <img src="../assets/icons/inst.svg" alt="instagram" />
+              </div>
+            </div>
+            <div class="contacts-group">
+              <div class="contacts-group_title">Контактные данные</div>
+              <div class="contacts-group_num">
+                <a href="tel:+79876543210">Телефон: +7 (987) 654-32-10</a>
+              </div>
+              <div class="contacts-group_mail">Email: info@financeapp.com</div>
+              <div class="contacts-group_adress">
+                Адрес: г. Москва, <br />
+                ул. Экономическая, д. 5
+              </div>
+            </div>
+            <nav class="links-group">
+              <div class="links-group_title">MoneyTalks</div>
+              <ul class="links-group_list">
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">Помощь</a>
+                </li>
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">О нас </a>
+                </li>
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">Вход </a>
+                </li>
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">Статьи</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="burger-footer">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <ul class="menu-footer">
+              <li>O нас</li>
+              <li>Помощь</li>
+              <li>Вход</li>
+              <li>Статьи</li>
+              <li>+7 (987) 654-32-10</li>
+              <li>Email: info@financeapp.com</li>
+              <li>
+                г. Москва, <br />
+                ул. Экономическая, д. 5
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script src="../scripts/calculate.js"></script>
+    <script src="../app.js"></script>
+  </body>
+</html>

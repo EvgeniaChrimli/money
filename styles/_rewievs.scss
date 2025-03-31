@@ -1,0 +1,44 @@
+.rewievs {
+  margin-bottom: 232px;
+  &_title {
+    padding-top: 160px;
+    text-align: center;
+    margin-bottom: 117px;
+  }
+}
+.rewievs-sec {
+  display: flex;
+  justify-content: center;
+  gap: 55px;
+
+  @media (max-width: 1200px) {
+    flex-wrap: wrap;
+  }
+
+  &_body {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 25px 20px;
+    border: 1px solid rgba(242, 240, 254, 1);
+    border-radius: 20px;
+    transition: all 0.5s;
+  }
+
+  &_body:hover {
+    background-color: rgba(34, 34, 34, 0.04);
+  }
+  &_image {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  &_col {
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+  }
+
+  &_name {
+  }
+}

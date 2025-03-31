@@ -1,0 +1,129 @@
+.footer {
+  background-color: $color-light-gray;
+  padding: 60px 0;
+
+  &_group {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 736px) {
+      align-items: center;
+      row-gap: 30px;
+    }
+  }
+}
+
+.logo-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 376px;
+
+  @media (max-width: 1210px) {
+    margin-right: 100px;
+  }
+
+  &_logo {
+    color: $color-green;
+    font-weight: 700;
+    font-size: 24px;
+
+    @media (max-width: 736px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &_social {
+    display: flex;
+    gap: 40px;
+  }
+}
+.contacts-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-right: 90px;
+
+  &_title {
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  @media (max-width: 736px) {
+    display: none;
+  }
+}
+.links-group {
+  &_title {
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  @media (max-width: 736px) {
+    display: none;
+  }
+}
+
+.burger-footer {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 736px) {
+  .burger-footer {
+    display: flex;
+  }
+}
+
+.burger-footer div {
+  width: 100%;
+  height: 4px;
+  background: $color-red;
+  transition: 0.3s;
+}
+
+.menu-footer {
+  position: fixed;
+  bottom: 0;
+  left: -100%;
+  width: 250px;
+  height: 100vh;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+@media (max-width: 736px) {
+  .menu-footer {
+  }
+}
+
+.menu-footer li {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  font-size: 18px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.menu-footer li:hover {
+  background: #444;
+}
+
+.menu-footer.active {
+  left: 0;
+}

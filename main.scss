@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&display=swap");
+@import "styles/reset", "styles/fonts", "styles/variables", "styles/header",
+  "styles/howWorks", "styles/rewievs", "styles/_top", "styles/questions",
+  "styles/controll", "styles/footer", "styles/calculate", "styles/financeTarget",
+  "styles/smartControll";
+
+//common styles
+.wrapper {
+  background-color: $color-white;
+  font-family: "Josefin Sans", sans-serif;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1170px;
+}
+.btn {
+  text-transform: uppercase;
+  padding: 16px 40px;
+  cursor: pointer;
+  font-weight: 700;
+}
+@media (max-width: 1000px) {
+  .btn {
+    padding: 11px 20px;
+    font-weight: 400;
+  }
+}
+.title-black {
+  font-size: 48px;
+  color: $color-black;
+  font-weight: 700;
+}
+
+.subtitle-black {
+  font-size: 24px;
+  color: $color-black;
+  font-weight: 700;
+}

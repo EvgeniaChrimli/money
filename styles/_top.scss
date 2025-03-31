@@ -1,0 +1,86 @@
+@function dynamic-margin($base-margin, $screen-width) {
+  @return $base-margin * ($screen-width / 1920px);
+}
+$base-margin: 273px;
+$screen-width: 100vw;
+
+.top {
+  background-image: url(assets/images/mainImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 40px;
+  min-height: 780px;
+  position: relative;
+
+  &_circle {
+    position: absolute;
+    top: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: $color-blue;
+    width: 100%;
+    max-width: 553px;
+    opacity: 0.5;
+    z-index: 0;
+    margin-right: 10px;
+    margin-left: dynamic-margin($base-margin, $screen-width);
+
+    @media (max-width: 858px) {
+      max-width: 445px;
+    }
+
+    @media (max-width: 558px) {
+      max-width: 345px;
+    }
+  }
+
+  &_title {
+    color: $color-white;
+    font-size: clamp(27px, 5vw, 57px);
+    font-weight: 700;
+    margin-right: 20px;
+  }
+
+  &_button {
+    background-color: $color-green;
+    color: $color-white;
+    padding: 24px 87px;
+    font-size: 24px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
+    max-width: 270px;
+
+    @media (max-width: 640px) {
+      font-size: 14px;
+      padding: 18px 53px;
+      max-width: 180px;
+    }
+  }
+
+  &_img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 554px;
+
+    @media (max-width: 1050px) {
+      max-width: 454px;
+    }
+
+    @media (max-width: 747px) {
+      max-width: 354px;
+    }
+  }
+}
+.top-body {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 205px;
+  z-index: 100;
+  margin-left: dynamic-margin($base-margin, $screen-width);
+}

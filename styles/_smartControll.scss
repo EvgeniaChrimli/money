@@ -1,0 +1,154 @@
+.smart {
+  position: relative;
+
+  &_title {
+    padding-top: 45px;
+    margin-bottom: 148px;
+    text-align: center;
+  }
+
+  &_img {
+    position: absolute;
+    top: 374px;
+    left: 39px;
+    width: 100%;
+    max-width: 306px;
+    @media (max-width: 1600px) {
+      width: 100%;
+      max-width: 170px;
+      left: 3px;
+    }
+  }
+
+  &_list {
+    min-width: 360px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 45px;
+    margin-bottom: 300px;
+  }
+
+  &_item {
+    min-width: 360px;
+    box-shadow: 0px 80px 120px 0px rgba(51, 51, 51, 0.4);
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_value {
+    color: $color-black;
+    font-size: 24px;
+    padding: 24px;
+    margin-bottom: 48px;
+  }
+
+  &_summ {
+    font-size: 16px;
+    color: $color-violet;
+    text-align: center;
+  }
+
+  &_btn {
+    color: $color-violet;
+    background-color: $color-pink;
+    padding: 25px 110px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+.buttonGroup {
+  background-color: $color-pink;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+}
+// .plus {
+//   margin-left: 16px;
+//   width: 100%;
+//   max-width: 39px;
+// }
+
+.noItem {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0px 80px 120px 0px rgba(51, 51, 51, 0.4);
+  padding: 18px;
+  color: $color-violet;
+  background-color: $color-pink;
+}
+
+.smart::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), transparent);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 351px;
+
+  &_title {
+    margin-bottom: 20px;
+  }
+  &_input {
+    border-radius: 30px;
+    display: block;
+    border: 1px solid rgba(215, 215, 215, 1);
+    padding: 15px 267px 15px 15px;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 12px;
+    margin-bottom: 10px;
+
+    @media (max-width: 420px) {
+      padding: 12px 180px 12px 12px;
+    }
+  }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.input-container {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 420px) {
+  .input-container {
+    margin: 0 15px 10px 15px;
+  }
+}
+
+#progressbar {
+  width: 100%;
+  height: 8px;
+  background-color: $color-light-gray;
+}
+
+#progress {
+  background-color: $color-violet;
+  max-width: 100%;
+  height: 8px;
+  transition: all 1s ease-in;
+}
+.svg {
+  width: 100%;
+  max-width: 30px;
+  max-height: 30px;
+  background: transparent;
+  fill: $color-violet;
+  cursor: pointer;
+}
