@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../main.css" />
+    <title>Анализ трат</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <nav class="nav">
+            <div class="logo"><a href="../index.html">Money talks</a></div>
+            <div class="burger" id="burger">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="#" class="link">O нас</a></li>
+              <li class="nav-item">
+                <a href="#" class="link">Как это работает</a>
+              </li>
+              <li class="nav-item"><a href="#" class="link">FAQ</a></li>
+            </ul>
+            <div class="btn-group">
+              <a href="#" class="nav-btn btn left">Вход</a>
+              <a href="#" class="nav-btn btn right">Регистрация</a>
+            </div>
+          </nav>
+
+          <div class="menu" id="menu">
+            <li class="menu-item">O нас</li>
+            <li class="menu-item">Как это работает</li>
+            <li class="menu-item">FAQ</li>
+            <li class="menu-btn">Вход</li>
+            <li class="menu-btn">Регистрация</li>
+          </div>
+          <div class="overlay" id="overlay"></div>
+        </div>
+      </header>
+      <section class="expense">
+        <img
+          src="../assets/icons/calcRight.svg"
+          alt="decorateImg"
+          class="expense_img"
+        />
+        <div class="container">
+          <div class="canva">
+            <canvas class="canva_expenses" id="expenses"></canvas>
+          </div>
+          <div class="notification">
+            <div class="notice">Оповещениe</div>
+            <div class="message"></div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer_group">
+            <div class="logo-group">
+              <div class="logo-group_logo">MoneyTalks</div>
+              <div class="logo-group_social">
+                <img src="../assets/icons/fb.svg" alt="facebook" />
+                <img src="../assets/icons/tw.svg" alt="twitter" />
+                <img src="../assets/icons/inst.svg" alt="instagram" />
+              </div>
+            </div>
+            <div class="contacts-group">
+              <div class="contacts-group_title">Контактные данные</div>
+              <div class="contacts-group_num">
+                <a href="tel:+79876543210">Телефон: +7 (987) 654-32-10</a>
+              </div>
+              <div class="contacts-group_mail">Email: info@financeapp.com</div>
+              <div class="contacts-group_adress">
+                Адрес: г. Москва, <br />
+                ул. Экономическая, д. 5
+              </div>
+            </div>
+            <nav class="links-group">
+              <div class="links-group_title">MoneyTalks</div>
+              <ul class="links-group_list">
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">Помощь</a>
+                </li>
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">О нас </a>
+                </li>
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">Вход </a>
+                </li>
+                <li class="links-group_item">
+                  <a href="" class="links-group_link">Статьи</a>
+                </li>
+              </ul>
+            </nav>
+
+            <div class="burger-footer">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+            <ul class="menu-footer">
+              <li>O нас</li>
+              <li>Помощь</li>
+              <li>Вход</li>
+              <li>Статьи</li>
+              <li>+7 (987) 654-32-10</li>
+              <li>Email: info@financeapp.com</li>
+              <li>
+                г. Москва, <br />
+                ул. Экономическая, д. 5
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../app.js"></script>
+    <script src="../scripts/expenses.js"></script>
+  </body>
+</html>

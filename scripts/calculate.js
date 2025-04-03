@@ -1,33 +1,9 @@
-// const selectMonth = document.getElementById("selectMonth");
-// let amountData = [];
-// const getData = () => {
-//   const inputs = document.querySelectorAll("form input");
-//   const expenceInputs = Array.from(inputs).map((input) =>
-//     input.name === "expence" ? Number(input.value) : 0
-//   );
-//   const totalExpence = expenceInputs.reduce((acc, num) => (acc += num), 0);
-//   const incomeInpets = Array.from(inputs).map((input) =>
-//     input.name === "income" ? Number(input.value) : 0
-//   );
-//   const totalIncome = incomeInpets.reduce((acc, num) => (acc += num), 0);
-//   const select = document.getElementById("selectForAnalysis").value;
-//   const dataObject = {
-//     month: select,
-//     totalIncome: totalIncome,
-//     expence: totalExpence,
-//   };
-//   const isMonth = amountData.some((item) => item.month === income.month);
-//   if (!isMonth) {
-//     amountData.push(dataObject);
-//   }
-// };
-
-let incomeData = {};
-let expenseData = {};
+let incomeData = [];
+let expenseData = [];
 let myChart;
 let gradient;
 
-let visibleRange = 4; // Количество месяцев, видимых одновременно
+let visibleRange = 4;
 let startIndex = 0;
 
 const labels = [
@@ -117,12 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
         zoom: {
           pan: {
             enabled: true,
-            mode: "x", // Только панорамирование по оси X
-            threshold: 10, // Минимальное расстояние для панорамирования
+            mode: "x",
+            threshold: 10,
           },
           zoom: {
             enabled: true,
-            mode: "x", // Масштабирование только по оси X
+            mode: "x",
           },
         },
         legend: {
@@ -131,10 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     },
   });
+  loadData();
 });
 
 function getInputValues(prefix) {
   let values = [];
+
   for (let i = 1; i <= 5; i++) {
     let val = document.getElementById(`${prefix}${i}`).value;
     values.push(Number(val) || 0);
@@ -142,30 +120,35 @@ function getInputValues(prefix) {
   return values;
 }
 
+//кнопка очистки локального?
 function saveData(type) {
   const month = document.getElementById("monthSelect").value;
   const values = getInputValues(type === "income" ? "income" : "expense");
   const sum = values.reduce((acc, val) => acc + val, 0);
-
   const tooltip = document.getElementById("summary");
 
-  if (type === "income") {
-    incomeData[month] = sum;
-    tooltip.classList.add("summary-active");
-    tooltip.textContent = `${month}: ${sum} ₽`;
-  } else {
-    expenseData[month] = sum;
-    tooltip.classList.add("summary-active");
+  let dataArray = type === "income" ? incomeData : expenseData;
+  let storageKey = type === "income" ? "income" : "expense";
 
-    tooltip.textContent = `${month}: ${sum} ₽`;
+  const exsistingEntry = dataArray.find((item) => item.month === month);
+  if (exsistingEntry) {
+    exsistingEntry.total = sum;
+  } else {
+    dataArray.push({ month, total: sum });
   }
+  localStorage.setItem(storageKey, JSON.stringify(dataArray));
+  tooltip.classList.add("summary-active");
+  tooltip.textContent = `${month}: ${sum} ₽`;
 
   updateChart(type);
 }
 
 function updateChart(type) {
   const data = labels.map((month) => {
-    return type === "income" ? incomeData[month] || 0 : expenseData[month] || 0;
+    const found = (type === "income" ? incomeData : expenseData).find(
+      (item) => item.month === month
+    );
+    return found ? found.total : 0;
   });
 
   const maxValue = Math.max(...data);
@@ -201,3 +184,14 @@ document
 document
   .getElementById("scrollRight")
   .addEventListener("click", () => scrollChart("right"));
+
+function loadData() {
+  const incomeFromStorage = JSON.parse(localStorage.getItem("income")) || [];
+  const expenseFromStorage = JSON.parse(localStorage.getItem("expense")) || [];
+
+  incomeData = incomeFromStorage;
+  expenseData = expenseFromStorage;
+
+  updateChart("income");
+  updateChart("expense");
+}
